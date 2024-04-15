@@ -10,6 +10,8 @@ import Register from "./pages/Register";
 import AuthProvider from "./provider/AuthProvider";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import PropertyDetails from "./pages/routes/PropertyDetails";
+import PrivateRoute from "./pages/routes/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,15 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/property/:id",
+        element: (
+          <PrivateRoute>
+            <PropertyDetails></PropertyDetails>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("/data.json"),
       },
     ],
   },
