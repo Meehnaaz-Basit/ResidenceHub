@@ -1,20 +1,16 @@
 const Contact = () => {
   return (
-    <div>
-      <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 bg-gray-800 dark:bg-gray-100 text-gray-100 dark:text-gray-800">
-        <div className="flex flex-col justify-between">
-          <div className="space-y-2">
-            <h2 className="text-4xl font-bold leading-tight lg:text-5xl">
-              Let's talk!
-            </h2>
-            <div className="text-gray-400 dark:text-gray-600">
-              Vivamus in nisl metus? Phasellus.
-            </div>
-          </div>
+    <div className="my-6 py-6">
+      <h2 className="text-2xl text-center font-bold leading-tight lg:text-4xl">
+        Let's talk!
+      </h2>
+      <div className="grid items-center max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 ">
+        <div className="flex flex-col items-center justify-between">
+          <div className="space-y-2"></div>
           <img
-            src="assets/svg/doodle.svg"
+            src="https://i.ibb.co/jwNxjh3/12893086-5092143.jpg"
             alt=""
-            className="p-6 h-52 md:h-64"
+            className="p-6 h-full "
           />
         </div>
         <form noValidate="" className="space-y-6">
@@ -51,7 +47,7 @@ const Contact = () => {
           </div>
           <button
             type="submit"
-            className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-violet-400 dark:bg-violet-600 text-gray-900 dark:text-gray-50"
+            className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-orange-500  text-white"
           >
             Send Message
           </button>
