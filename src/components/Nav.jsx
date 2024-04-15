@@ -3,19 +3,46 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Nav = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut().then().catch();
+  };
 
   const navMenu = (
     <>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/about">About</NavLink>
-      </li>
-      <li>
-        <NavLink to="/contact">Contact</NavLink>
-      </li>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive
+            ? "border-2 border-orange-500 text-white bg-orange-500 py-2 px-3 mx-2  rounded-lg font-semibold"
+            : "border-2 border-transparent py-2 px-3 mx-2  rounded-lg font-semibold hover:border-orange-500 hover:text-white hover:bg-orange-500 transition-all"
+        }
+      >
+        Home
+      </NavLink>
+
+      <NavLink
+        to="/about"
+        className={({ isActive }) =>
+          isActive
+            ? "border-2 border-orange-500 text-white bg-orange-500 py-2 px-3 mx-2  rounded-lg font-semibold"
+            : "border-2 border-transparent py-2 px-3 mx-2  rounded-lg font-semibold hover:border-orange-500 hover:text-white hover:bg-orange-500 transition-all"
+        }
+      >
+        About
+      </NavLink>
+
+      <NavLink
+        to="/contact"
+        className={({ isActive }) =>
+          isActive
+            ? "border-2 border-orange-500 text-white bg-orange-500 py-2 px-3 mx-2  rounded-lg font-semibold"
+            : "border-2 border-transparent py-2 px-3 mx-2  rounded-lg font-semibold hover:border-orange-500 hover:text-white hover:bg-orange-500 transition-all"
+        }
+      >
+        Contact
+      </NavLink>
     </>
   );
 
@@ -54,8 +81,33 @@ const Nav = () => {
         <ul className="menu menu-horizontal px-1">{navMenu}</ul>
       </div>
       <div className="navbar-end gap-4">
+        {/* user profile image */}
         {user ? (
-          <button className="btn border-orange-500 bg-orange-500 text-white font-bold">
+          <div>
+            {user.photoURL ? (
+              <img className="w-10" src={user.photoURL} alt="Profile" />
+            ) : (
+              <img
+                className="w-10"
+                src="https://i.ibb.co/X3yrLFJ/pngegg.png"
+                alt=""
+              />
+            )}
+          </div>
+        ) : null}
+
+        {/* <div>
+          <img
+            className="w-10"
+            src="https://i.ibb.co/X3yrLFJ/pngegg.png"
+            alt=""
+          />
+        </div> */}
+        {user ? (
+          <button
+            onClick={handleLogOut}
+            className="btn border-teal-500 bg-teal-500 text-white font-bold"
+          >
             LogOut
           </button>
         ) : (

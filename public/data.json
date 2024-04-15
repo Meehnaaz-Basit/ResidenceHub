@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "estate_title": "Downtown Apartment",
+    "segment_name": "Apartment",
+    "description": "Beautiful one-bedroom apartment located in the heart of downtown. Close to shops, restaurants, and public transportation.",
+    "price": "$1200/month",
+    "status": "rent",
+    "area": "800 sq ft",
+    "location": "Downtown, CityName",
+    "facilities": ["1 bedroom", "1 bathroom", "Balcony"],
+    "image": "https://i.ibb.co/8bRQ6jn/building-1615676-640.jpg"
+  },
+  {
+    "id": 2,
+    "estate_title": "Suburban Family Home",
+    "segment_name": "Single-family home",
+    "description": "Spacious three-bedroom family home with a large backyard. Ideal for families looking for a quiet suburban lifestyle.",
+    "price": "$300,000",
+    "status": "sale",
+    "area": "2000 sq ft",
+    "location": "Suburb, CityName",
+    "facilities": ["3 bedrooms", "2 bathrooms", "Backyard", "Garage"],
+    "image": "https://i.ibb.co/rGgK9ht/home-4708883-640.jpg"
+  },
+  {
+    "id": 3,
+    "estate_title": "City Center Penthouse",
+    "segment_name": "Apartment",
+    "description": "Stunning penthouse offering breathtaking views of the city skyline. Features modern amenities and luxurious finishes.",
+    "price": "$500,000",
+    "status": "sale",
+    "area": "2500 sq ft",
+    "location": "City Center, CityName",
+    "facilities": [
+      "3 bedrooms",
+      "3 bathrooms",
+      "Rooftop terrace",
+      "Gym",
+      "Spa"
+    ],
+    "image": "https://i.ibb.co/179LTtK/house-1158139-640.jpg"
+  },
+  {
+    "id": 4,
+    "estate_title": "University Housing",
+    "segment_name": "Student housing",
+    "description": "Convenient student housing just a short walk from the university campus. Fully furnished units available.",
+    "price": "$800/month",
+    "status": "rent",
+    "area": "600 sq ft",
+    "location": "University District, CityName",
+    "facilities": ["Studio apartment", "Fully furnished", "Laundry facilities"],
+    "image": "https://i.ibb.co/PZQd71V/kleve-4719160-640.jpg"
+  },
+  {
+    "id": 5,
+    "estate_title": "Retirement Community",
+    "segment_name": "Senior living community",
+    "description": "Comfortable senior living community offering various amenities and activities for residents. Pet-friendly environment.",
+    "price": "$2500/month",
+    "status": "rent",
+    "area": "1200 sq ft",
+    "location": "Retirement Village, CityName",
+    "facilities": [
+      "1-2 bedroom units",
+      "Dining hall",
+      "Fitness center",
+      "Community garden"
+    ],
+    "image": "https://i.ibb.co/jWh3v8d/family-house-2844962-640.jpg"
+  },
+  {
+    "id": 6,
+    "estate_title": "Beachside Vacation Rental",
+    "segment_name": "Vacation rental",
+    "description": "Quaint beachside cottage perfect for a relaxing getaway. Enjoy ocean views and direct beach access.",
+    "price": "$150/night",
+    "status": "rent",
+    "area": "1000 sq ft",
+    "location": "Beachfront, CityName",
+    "facilities": [
+      "2 bedrooms",
+      "1 bathroom",
+      "Beach access",
+      "Outdoor seating"
+    ],
+    "image": "https://i.ibb.co/Kxk287Y/sand-3255295-640.jpg"
+  }
+]

@@ -13,12 +13,12 @@ const Register = () => {
     const name = form.get("name");
     const email = form.get("email");
     const password = form.get("password");
-    const photo = form.get("photo");
+    const photoURL = form.get("photoURL");
 
-    console.log(name, email, password, photo);
+    console.log(name, email, password, photoURL);
 
     // create user
-    createUser(email, password)
+    createUser(email, password, photoURL)
       .then((result) => {
         console.log(result.user);
       })
@@ -78,9 +78,9 @@ const Register = () => {
                 <span className="label-text">Profile Picture</span>
               </label>
               <input
-                type="file"
-                name="picture"
-                placeholder="Profile Picture"
+                type="text"
+                name="photoURL"
+                placeholder="Picture Url"
                 className="input input-bordered"
                 required
               />
