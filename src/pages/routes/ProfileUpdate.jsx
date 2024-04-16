@@ -36,12 +36,16 @@ const ProfileUpdate = () => {
           <div className="w-full">
             <img
               className="w-[200px] h-[200px] rounded-full object-cover mx-auto"
-              src={user?.photoURL || ""}
+              src={user?.photoURL || "https://i.ibb.co/X3yrLFJ/pngegg.png"}
               alt=""
             />
           </div>
-          <h1 className="font-bold text-2xl">{user?.displayName || ""}</h1>
-          <p className="font-medium text-xl">{user?.email || ""}</p>
+          <h1 className="font-bold text-2xl">
+            User Name: <span> {user?.displayName || "No Name found!"}</span>
+          </h1>
+          <p className="font-medium text-xl">
+            User Email: <span>{user?.email || "No Email found!"}</span>
+          </p>
         </div>
         <div className="lg:h-[80%] lg:w-[2px] bg-orange-500"></div>
         <div className="md:basis-1/2">
@@ -81,7 +85,7 @@ const ProfileUpdate = () => {
                 placeholder="Email Address"
                 name="email"
                 className="input input-bordered"
-                value={user?.email || ""}
+                value={user?.email || "'No email found!'"}
                 disabled
               />
             </div>

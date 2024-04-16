@@ -6,9 +6,11 @@ import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { logIn } = useContext(AuthContext);
+  const { logIn, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+
+  console.log("login with google,login page", loginWithGoogle);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -32,6 +34,24 @@ const Login = () => {
         console.error(error);
         // alert("password didnot match");
       });
+  };
+  const handleLoginWithGoogle = (e) => {
+    e.preventDefault();
+    loginWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch();
+  };
+  const handleLoginWithGithub = (e) => {
+    e.preventDefault();
+    loginWithGithub()
+      .then((result) => {
+        console.log(result.user);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch();
   };
 
   return (
@@ -89,6 +109,37 @@ const Login = () => {
                 </button>
               </div>
             </form>
+            <div className="mx-8 mt-3 mb-8 h-[1px] text-center relative  bg-orange-500">
+              <span className="p-2 px-4 font-semibold absolute top-5 left-50% transform -translate-x-1/2 -translate-y-full bg-white ">
+                OR
+              </span>
+              <p className="mt-5 font-semibold">Login with</p>
+            </div>
+
+            <div className="flex justify-center gap-8 p-8 pt-0 mt-10 text-sm">
+              <button
+                onClick={handleLoginWithGoogle}
+                className="btn bg-transparent border-2 border-orange-500 hover:bg-transparent "
+              >
+                <img
+                  className="w-5"
+                  src="https://i.ibb.co/r3Z4M9J/google.png"
+                  alt=""
+                />{" "}
+                <span className="font-bold text-orange-500">Google</span>
+              </button>
+              <button
+                onClick={handleLoginWithGithub}
+                className="btn bg-transparent border-2 border-orange-500 hover:bg-transparent "
+              >
+                <img
+                  className="w-5"
+                  src="https://i.ibb.co/jVWqChS/github.png"
+                  alt=""
+                />{" "}
+                <span className="font-bold text-orange-500">GitHub</span>
+              </button>
+            </div>
             <div className="flex justify-between p-8 pt-0 text-sm">
               <div>
                 <p> Don't have any account?</p>

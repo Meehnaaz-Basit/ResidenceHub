@@ -14,6 +14,7 @@ import PropertyDetails from "./pages/routes/PropertyDetails";
 import PrivateRoute from "./pages/routes/PrivateRoute";
 import { HelmetProvider } from "react-helmet-async";
 import ProfileUpdate from "./pages/routes/ProfileUpdate";
+import Error404 from "./pages/Error404";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () => fetch("/data.json"),
+      },
+      {
+        path: "/*",
+        element: <Error404></Error404>,
       },
     ],
   },
