@@ -119,12 +119,12 @@ const Nav = () => {
           </Link>
         )}
 
-        <Link
+        {/* <Link
           to="/register"
           className="btn border-orange-500 bg-transparent text-orange-500 font-bold"
         >
           Register
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

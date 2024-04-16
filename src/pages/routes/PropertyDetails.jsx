@@ -1,5 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import Location from "../../components/Location";
+import { Helmet } from "react-helmet-async";
 
 const PropertyDetails = () => {
   const houses = useLoaderData();
@@ -19,6 +20,9 @@ const PropertyDetails = () => {
   } = house;
   return (
     <div>
+      <Helmet>
+        <title>ResidentialHub - Details:{id} </title>
+      </Helmet>
       <div className="p-5 mx-auto sm:p-10 md:p-16 bg-gray-800 dark:bg-gray-100 text-gray-100 dark:text-gray-800">
         <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
           <img

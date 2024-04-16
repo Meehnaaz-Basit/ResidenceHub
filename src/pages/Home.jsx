@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Slider from "../components/Slider";
 import HouseCard from "../components/HouseCard";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [houses, setHouses] = useState([]);
@@ -13,6 +14,9 @@ const Home = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>ResidentialHub - Home </title>
+      </Helmet>
       <Slider></Slider>
       {/* estate */}
       <div className="py-6 my-6">
