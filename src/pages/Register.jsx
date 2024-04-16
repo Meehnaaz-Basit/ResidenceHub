@@ -4,6 +4,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,22 +24,76 @@ const Register = () => {
 
     console.log(name, email, password, photoURL);
 
+    // Password validation
+    if (!containsUppercase(password)) {
+      alert("Password must contain an uppercase letter");
+
+      return;
+    }
+    if (!containsLowercase(password)) {
+      alert("Password must contain a lowercase letter");
+
+      return;
+    }
+    if (!hasSufficientLength(password)) {
+      alert("Password must be at least 6 characters long");
+
+      return;
+    }
+
     // create user
     createUser(email, password, photoURL)
       .then((result) => {
         console.log(result.user);
+
+        updateProfile(result.user, { displayName: name, photoURL: photoURL });
+        console.log(name, photoURL, "update");
+
         // navigate after register
-        navigate(location?.state ? location.state : "/");
+
+        navigate(location?.state ? location.state : "/login");
+        // navigate("/login");
       })
       .catch((error) => {
         console.error(error);
       });
   };
 
+  //
+
+  //
+
+  // Function to check if password contains an uppercase letter
+  const containsUppercase = (str) => {
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] >= "A" && str[i] <= "Z") {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  // Function to check if password contains a lowercase letter
+  const containsLowercase = (str) => {
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] >= "a" && str[i] <= "z") {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  // Function to check if password has sufficient length
+  const hasSufficientLength = (str) => {
+    return str.length >= 6;
+  };
+
+  //
+
   return (
     <div>
       <Helmet>
-        <title>ResidentialHub - Register </title>
+        <title>ResidenceHub - Register </title>
       </Helmet>
       <div className=" min-h-[70%] mt-8">
         <div className="hero-content flex-col ">

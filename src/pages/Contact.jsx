@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <div>
       <Helmet>
-        <title>ResidentialHub - Contact </title>
+        <title>ResidenceHub - Contact </title>
       </Helmet>
 
       <div className="my-6 py-6">

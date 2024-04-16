@@ -30,13 +30,14 @@ const Login = () => {
       })
       .catch((error) => {
         console.error(error);
+        // alert("password didnot match");
       });
   };
 
   return (
     <div>
       <Helmet>
-        <title>ResidentialHub - Login </title>
+        <title>ResidenceHub - Login </title>
       </Helmet>
 
       <div className=" min-h-[70%] mt-8">

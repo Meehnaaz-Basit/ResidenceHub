@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { FaUserEdit } from "react-icons/fa";
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
+  // console.log(user, "user from nav");
 
   const handleLogOut = () => {
     logOut().then().catch();
@@ -74,35 +76,55 @@ const Nav = () => {
           </ul>
         </div>
         <a href="/" className="text-2xl font-bold">
-          Residential <span className="-ml-1 text-orange-500"> Hub</span>
+          Residence <span className="-ml-1 text-orange-500"> Hub</span>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navMenu}</ul>
       </div>
-      <div className="navbar-end gap-4">
-        {/* user profile image */}
-        {user ? (
-          <div>
-            {user.photoURL ? (
-              <img className="w-10" src={user.photoURL} alt="Profile" />
-            ) : (
-              <img
-                className="w-10"
-                src="https://i.ibb.co/X3yrLFJ/pngegg.png"
-                alt=""
-              />
-            )}
-          </div>
-        ) : null}
+      <div className="navbar-end   gap-4">
+        <div className="relative">
+          {/* user profile image */}
+          {user ? (
+            <div
+              className="tooltip tooltip-bottom tooltip-accent  "
+              data-tip={user.displayName}
+            >
+              {user.photoURL ? (
+                <img
+                  className="w-14 h-14 rounded-full border-2 border-orange-500 object-cover "
+                  // title={user.displayName}
+                  src={user.photoURL}
+                  alt="Profile"
+                />
+              ) : (
+                <img
+                  className="w-10"
+                  src="https://i.ibb.co/X3yrLFJ/pngegg.png"
+                  alt=""
+                />
+              )}
+            </div>
+          ) : null}
 
-        {/* <div>
-          <img
-            className="w-10"
-            src="https://i.ibb.co/X3yrLFJ/pngegg.png"
-            alt=""
-          />
-        </div> */}
+          {/* Update profile button */}
+          {user && (
+            <Link
+              to="/profileUpdate"
+              // onClick={handleUpdateProfile}
+              // className="btn border-teal-500 bg-teal-500 text-white font-bold"
+            >
+              <div
+                className=" flex items-center h-6 w-6 rounded-full bg-orange-500 hover:bg-teal-500 transition-all tooltip tooltip-bottom absolute left-[70%] top-[60%]"
+                data-tip="Edit Profile"
+              >
+                {" "}
+                <FaUserEdit className="text-white mx-auto text-md" />{" "}
+              </div>
+            </Link>
+          )}
+        </div>
+        {/* log out */}
         {user ? (
           <button
             onClick={handleLogOut}

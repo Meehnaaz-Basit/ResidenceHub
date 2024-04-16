@@ -13,6 +13,7 @@ import Contact from "./pages/Contact";
 import PropertyDetails from "./pages/routes/PropertyDetails";
 import PrivateRoute from "./pages/routes/PrivateRoute";
 import { HelmetProvider } from "react-helmet-async";
+import ProfileUpdate from "./pages/routes/ProfileUpdate";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,15 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/profileUpdate",
+        element: (
+          <PrivateRoute>
+            {" "}
+            <ProfileUpdate></ProfileUpdate>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/register",
