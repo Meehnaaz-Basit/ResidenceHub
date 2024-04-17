@@ -10,6 +10,8 @@ import {
   signOut,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const AuthContext = createContext(null);
 
@@ -28,6 +30,8 @@ const AuthProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
   //
   const loginWithGoogle = () => {
+    setLoading(true);
+    // toast.success("Logged In Successfully with Google ");
     return signInWithPopup(auth, googleProvider);
   };
 
@@ -35,16 +39,20 @@ const AuthProvider = ({ children }) => {
   const githubProvider = new GithubAuthProvider();
   //
   const loginWithGithub = () => {
+    setLoading(true);
+    // toast.success("Logged In Successfully with Github");
     return signInWithPopup(auth, githubProvider);
   };
 
   const logIn = (email, password) => {
     setLoading(true);
+    // toast.success("Logged In Successfully");
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logOut = () => {
     setLoading(true);
+    toast.success("Logged Out Successfully");
     return signOut(auth);
   };
 

@@ -40,7 +40,7 @@ const Slider = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="relative">
+          <div className="relative ">
             <div
               className="bg-cover bg-center w-full h-80vh relative flex justify-center items-center"
               style={{
@@ -56,10 +56,10 @@ const Slider = () => {
               {/* Overlay */}
               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
               {/* content */}
-              <div className="absolute text-center text-white z-10 ">
-                <h1 className="text-sm">HEADING</h1>
-                <p className="text-5xl">subheading</p>
-                <button className="btn">View more</button>
+              <div className="absolute text-center space-y-4 text-white z-10 ">
+                <h1 className="text-sm uppercase">Single-family home</h1>
+                <p className="text-5xl mb-6">Suburban Family Home</p>
+                <button className="btn ">View more</button>
               </div>
             </div>
           </div>
@@ -82,10 +82,10 @@ const Slider = () => {
               {/* Overlay */}
               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
               {/* content */}
-              <div className="absolute text-center text-white z-10">
-                <h1>HEADING</h1>
-                <p>subheading</p>
-                <button className="btn">View more</button>
+              <div className="absolute space-y-4 text-center text-white z-10">
+                <h1 className="text-sm uppercase">apartment</h1>
+                <p className="text-5xl mb-6">Downtown Apartment</p>
+                <button className="btn ">View more</button>
               </div>
             </div>
           </div>
@@ -108,9 +108,9 @@ const Slider = () => {
               {/* Overlay */}
               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
               {/* content */}
-              <div className="absolute text-center text-white z-10">
-                <h1>HEADING</h1>
-                <p>subheading</p>
+              <div className="absolute space-y-4 text-center text-white z-10">
+                <h1 className="text-sm uppercase">Senior living community</h1>
+                <p className="text-5xl mb-6">Retirement Community</p>
                 <button className="btn">View more</button>
               </div>
             </div>

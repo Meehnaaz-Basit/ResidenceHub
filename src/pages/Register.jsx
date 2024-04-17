@@ -6,6 +6,8 @@ import "aos/dist/aos.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
 import { updateProfile } from "firebase/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   useEffect(() => {
@@ -30,17 +32,17 @@ const Register = () => {
 
     // Password validation
     if (!containsUppercase(password)) {
-      alert("Password must contain an uppercase letter");
+      toast.error("Password must contain an uppercase letter");
 
       return;
     }
     if (!containsLowercase(password)) {
-      alert("Password must contain a lowercase letter");
+      toast.error("Password must contain a lowercase letter");
 
       return;
     }
     if (!hasSufficientLength(password)) {
-      alert("Password must be at least 6 characters long");
+      toast.error("Password must be at least 6 characters long");
 
       return;
     }
@@ -57,9 +59,17 @@ const Register = () => {
 
         navigate(location?.state ? location.state : "/login");
         // navigate("/login");
+        toast.success("Registered Successfully ");
       })
       .catch((error) => {
         console.error(error);
+        if (error.code === "auth/email-already-in-use") {
+          toast.error(
+            "Email is already in use. Please use a different email address."
+          );
+        } else {
+          toast.error("Error registering");
+        }
       });
   };
 

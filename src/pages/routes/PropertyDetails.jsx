@@ -1,5 +1,7 @@
-import { useLoaderData, useParams } from "react-router-dom";
-import Location from "../../components/Location";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+import { GrLocation } from "react-icons/gr";
+import { MdOutlineOtherHouses } from "react-icons/md";
+
 import { Helmet } from "react-helmet-async";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -54,13 +56,61 @@ const PropertyDetails = () => {
 
               <p> {details} </p>
             </div>
-            <div></div>
+            <div>
+              {" "}
+              {/*  */}
+              <div>
+                <div className="container mx-auto space-y-12">
+                  <div className="flex flex-col lg:flex-row">
+                    <div className="flex flex-col lg:basis1/2 space-y-4 justify-center bg-white flex-1 p-6">
+                      <p className="text-teal-500 text-sm font-semibold ">
+                        {segment_name}
+                      </p>
+                      <div className="text-sm w-16  text-white uppercase font-bold bg-orange-500 py-2 px-2">
+                        {status}
+                      </div>
+                      <h1 className="text-3xl font-bold ">{estate_title}</h1>
+                      <div className="md:flex gap-8 items-center">
+                        <div className="flex gap-2 items-center ">
+                          {" "}
+                          <GrLocation className="text-orange-500" />
+                          {location}
+                        </div>
+                        <div className="flex gap-2 items-center">
+                          {" "}
+                          <MdOutlineOtherHouses className="text-orange-500" />
+                          {area}
+                        </div>
+                      </div>
+                      <div className="flex flex-col">
+                        <p className="font-semibold underline">Facilities</p>
+                        {facilities.map((facility, index) => (
+                          <li key={index} className="list-none ">
+                            {facility}
+                          </li>
+                        ))}
+                      </div>
+                      <div className="flex gap-4 items-center">
+                        <div>
+                          <span className="font-bold text-xl">
+                            Price:{" "}
+                            <span className="text-orange-500">{price}</span>{" "}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      {/* map\ */}
-      <div className="my-6">
-        <Location></Location>
+      {/* \ */}
+      <div className="my-6 text-center">
+        <Link to="/" className="btn bg-orange-500 text-white font-bold px-4">
+          Back To Home Page
+        </Link>
       </div>
       {/*  */}
     </div>

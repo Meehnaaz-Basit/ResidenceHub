@@ -5,6 +5,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { logIn, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
@@ -27,13 +29,21 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         console.log(result.user.photoURL);
-
+        toast.success("Logged In Successfully");
         // navigate after login
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.error(error);
-        // alert("password didnot match");
+        if (error.code === "auth/wrong-password") {
+          toast.error("Incorrect password. Please try again.");
+        } else if (error.code === "auth/user-not-found") {
+          toast.error("User not found. Please check your email address.");
+        } else if (error.code === "auth/invalid-credential") {
+          toast.error("Please check your email or password again");
+        } else {
+          toast.error("An error occurred. Please try again later.");
+        }
       });
   };
   const handleLoginWithGoogle = (e) => {
@@ -41,18 +51,24 @@ const Login = () => {
     loginWithGoogle()
       .then((result) => {
         console.log(result.user);
+        toast.success("Logged In Successfully with Google ");
         navigate(location?.state ? location.state : "/");
       })
-      .catch();
+      .catch((error) => {
+        console.error(error);
+      });
   };
   const handleLoginWithGithub = (e) => {
     e.preventDefault();
     loginWithGithub()
       .then((result) => {
         console.log(result.user);
+        toast.success("Logged In Successfully with GitHub");
         navigate(location?.state ? location.state : "/");
       })
-      .catch();
+      .catch((error) => {
+        console.error(error);
+      });
   };
   useEffect(() => {
     AOS.init({ duration: "1000" });

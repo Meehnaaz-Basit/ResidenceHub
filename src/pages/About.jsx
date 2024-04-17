@@ -14,7 +14,7 @@ const About = () => {
       <div>
         <div
           data-aos="zoom-in"
-          className="hero min-h-[70vh] rounded-2xl"
+          className="hero min-h-[90vh] rounded-2xl"
           style={{
             backgroundImage:
               "url(https://i.ibb.co/mvcrJGs/pexels-binyamin-mellish-1396132.jpg)",
@@ -68,7 +68,7 @@ const About = () => {
               <img
                 src="https://i.ibb.co/fG5NR6w/pexels-fauxels-3183183.jpg"
                 alt=""
-                className="h-80  aspect-video rounded-md"
+                className="h-80  object-cover aspect-video rounded-md"
               />
               <div className="flex flex-col justify-center flex-1 p-6 space-y-5 ">
                 <h3 className="text-3xl font-bold text-orange-500">

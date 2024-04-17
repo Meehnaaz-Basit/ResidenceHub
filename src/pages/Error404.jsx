@@ -9,7 +9,7 @@ const Error404 = () => {
       </Helmet>
       <div className="flex my-10 flex-col min-h-[50vh] justify-center items-center mx-auto mt-20">
         <img
-          className="w-[30%] object-cover"
+          className="lg:w-[30%] md:[50%] object-cover"
           src="https://i.ibb.co/c6hPvxT/error.jpg"
           alt=""
         />
