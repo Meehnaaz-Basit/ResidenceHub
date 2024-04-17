@@ -4,6 +4,8 @@ import { updateProfile } from "firebase/auth";
 import { Helmet } from "react-helmet-async";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const ProfileUpdate = () => {
   useEffect(() => {
     AOS.init({ duration: "2000" });
@@ -24,8 +26,10 @@ const ProfileUpdate = () => {
     // e.preventDefault();
     try {
       await updateProfile(user, { displayName: name, photoURL: photoURL });
+      toast.success("Profile updated successfully");
     } catch (error) {
       console.error("Error updating profile:", error);
+      toast.error("Updating failed");
     }
   };
 
