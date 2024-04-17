@@ -1,13 +1,21 @@
 import { Link } from "react-router-dom";
+import "animate.css";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer  footer-center p-10 bg-base-200 text-base-content rounded">
-        <div className="container space-y-3 mx-auto max-w-[1300px] w-[90%] lg-w[88%] px-0">
-          <h1 className="text-3xl font-bold text-center">
-            Residence<span className="text-orange-500">Hub</span>
-          </h1>
+      <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <div className="container  space-y-3 mx-auto max-w-[1300px] w-[90%] lg-w[88%] px-0">
+          <div className="">
+            <img
+              className="w-36 mx-auto"
+              src="https://i.ibb.co/5kD1HtX/REsidencehub-1.png"
+              alt=""
+            />
+            <h1 className="text-3xl font-bold text-center">
+              Residence<span className="text-orange-500">Hub</span>
+            </h1>
+          </div>
           <nav className="grid grid-flow-col gap-4">
             <Link
               to="/"

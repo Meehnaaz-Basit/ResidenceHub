@@ -4,6 +4,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { FaUserEdit } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "animate.css";
 const Nav = () => {
   useEffect(() => {
     AOS.init({ duration: "2000" });
@@ -82,8 +83,20 @@ const Nav = () => {
             {navMenu}
           </ul>
         </div>
-        <a href="/" data-aos="zoom-in" className="text-2xl font-bold">
-          Residence <span className="-ml-1 text-orange-500"> Hub</span>
+        <a
+          href="/"
+          data-aos="zoom-in"
+          className="text-2xl font-bold flex items-center gap-2"
+        >
+          {/* Residence <span className="-ml-1 text-orange-500"> Hub</span> */}
+          <img
+            className="w-20 md:block hidden animate__rotateIn animate__animated animate__infinite	animate__slow"
+            src="https://i.ibb.co/5kD1HtX/REsidencehub-1.png"
+            alt=""
+          />
+          <span>
+            Residence <span className="-ml-1 text-orange-500"> Hub</span>
+          </span>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">

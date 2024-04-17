@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const Error404 = () => {
   return (
     <div>
-      <div className="flex flex-col min-h-[50vh] justify-center items-center mx-auto mt-20">
+      <Helmet>
+        <title>ResidenceHub - Error </title>
+      </Helmet>
+      <div className="flex my-10 flex-col min-h-[50vh] justify-center items-center mx-auto mt-20">
         <img
           className="w-[30%] object-cover"
           src="https://i.ibb.co/c6hPvxT/error.jpg"
