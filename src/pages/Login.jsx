@@ -120,9 +120,9 @@ const Login = () => {
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <FaEye className="text-gray-600"></FaEye>
+                    <FaEye className="text-gray-600 cursor-pointer"></FaEye>
                   ) : (
-                    <FaEyeSlash className="text-gray-600"></FaEyeSlash>
+                    <FaEyeSlash className="text-gray-600 cursor-pointer"></FaEyeSlash>
                   )}
                 </span>
               </div>
