@@ -1,6 +1,8 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -16,6 +18,9 @@ import {
 } from "swiper/modules";
 
 const Slider = () => {
+  useEffect(() => {
+    AOS.init({ duration: "3000" });
+  }, []);
   return (
     <div className="my-6">
       <Swiper
@@ -51,9 +56,9 @@ const Slider = () => {
               {/* Overlay */}
               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
               {/* content */}
-              <div className="absolute text-center text-white z-10">
-                <h1>HEADING</h1>
-                <p>subheading</p>
+              <div className="absolute text-center text-white z-10 ">
+                <h1 className="text-sm">HEADING</h1>
+                <p className="text-5xl">subheading</p>
                 <button className="btn">View more</button>
               </div>
             </div>

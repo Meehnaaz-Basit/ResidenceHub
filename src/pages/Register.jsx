@@ -1,12 +1,16 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  useEffect(() => {
+    AOS.init({ duration: "1000" });
+  }, []);
   const [showPassword, setShowPassword] = useState(false);
   const { createUser } = useContext(AuthContext);
   const location = useLocation();
@@ -95,14 +99,17 @@ const Register = () => {
       <Helmet>
         <title>ResidenceHub - Register </title>
       </Helmet>
-      <div className=" min-h-[70%] mt-8">
+      <div className=" min-h-[70%] my-8">
         <div className="hero-content flex-col ">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold text-orange-500">
+          <div className="text-center" data-aos="zoom-in">
+            <h1 className="text-3xl font-bold text-orange-500">
               Please Register!
             </h1>
           </div>
-          <div className="card shrink-0 w-full max-w-lg shadow-2xl bg-base-100 mt-6">
+          <div
+            className="card shrink-0 w-full max-w-lg shadow-2xl bg-base-100 mt-6"
+            data-aos="zoom-in"
+          >
             <form onSubmit={handleRegister} className="card-body">
               <div className="form-control">
                 <label className="label">

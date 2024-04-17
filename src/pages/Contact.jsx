@@ -1,6 +1,11 @@
 import { Helmet } from "react-helmet-async";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const Contact = () => {
+  useEffect(() => {
+    AOS.init({ duration: "1000" });
+  }, []);
   return (
     <div>
       <Helmet>
@@ -8,7 +13,10 @@ const Contact = () => {
       </Helmet>
 
       <div className="my-6 py-6">
-        <h2 className="text-2xl text-center font-bold leading-tight lg:text-4xl">
+        <h2
+          data-aos="zoom-in"
+          className="text-2xl text-center font-bold leading-tight lg:text-4xl"
+        >
           Let's talk!
         </h2>
         <div className="grid items-center max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 ">
@@ -20,7 +28,7 @@ const Contact = () => {
               className="p-6 h-full "
             />
           </div> */}
-          <div className="py-6 md:py-0 md:px-6">
+          <div data-aos="zoom-in" className="py-6 md:py-0 md:px-6">
             <h1 className="text-4xl font-bold">Get in touch</h1>
             <p className="pt-2 pb-4">
               Fill in the form to start a conversation
@@ -67,7 +75,7 @@ const Contact = () => {
             </div>
           </div>
           <form noValidate="" className="space-y-6">
-            <div>
+            <div data-aos="zoom-in-left">
               <label htmlFor="name" className="text-sm">
                 Full name
               </label>
@@ -78,7 +86,7 @@ const Contact = () => {
                 className="w-full p-3 rounded bg-gray-800 dark:bg-gray-100"
               />
             </div>
-            <div>
+            <div data-aos="zoom-in-right">
               <label htmlFor="email" className="text-sm">
                 Email
               </label>
@@ -88,7 +96,7 @@ const Contact = () => {
                 className="w-full p-3 rounded bg-gray-800 dark:bg-gray-100"
               />
             </div>
-            <div>
+            <div data-aos="zoom-in-right">
               <label htmlFor="message" className="text-sm">
                 Message
               </label>
@@ -99,6 +107,7 @@ const Contact = () => {
               ></textarea>
             </div>
             <button
+              data-aos="fade-up"
               type="submit"
               className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-orange-500  text-white"
             >

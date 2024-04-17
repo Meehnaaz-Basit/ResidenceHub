@@ -7,7 +7,9 @@ const Root = () => {
     <div>
       <div className="container mx-auto max-w-[1300px] w-[90%] lg-w[88%] px-0">
         <Nav></Nav>
-        <Outlet></Outlet>
+        <div style={{ minHeight: `calc(100vh - 334px)` }}>
+          <Outlet></Outlet>
+        </div>
       </div>
       <Footer></Footer>
     </div>

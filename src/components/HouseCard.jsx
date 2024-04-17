@@ -1,7 +1,7 @@
 import { GrLocation } from "react-icons/gr";
 import { MdOutlineOtherHouses } from "react-icons/md";
 import { Link } from "react-router-dom";
-
+import "animate.css";
 const HouseCard = ({ house }) => {
   const {
     id,
@@ -15,13 +15,14 @@ const HouseCard = ({ house }) => {
     price,
   } = house;
   const isEvenId = id % 2 === 0;
-
+  const animationDirection = isEvenId ? "fade-right" : "fade-left";
   return (
     <section className="p-4 my-8 lg:p-8 bg-gray-50  shadow-md">
       <div className="container mx-auto space-y-12">
         <div
+          data-aos={animationDirection}
           className={`flex flex-col lg:flex-row ${
-            isEvenId ? "lg:flex-row-reverse" : ""
+            isEvenId ? "lg:flex-row-reverse " : ""
           }`}
         >
           <div

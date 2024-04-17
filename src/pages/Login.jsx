@@ -1,9 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { logIn, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
@@ -53,6 +54,9 @@ const Login = () => {
       })
       .catch();
   };
+  useEffect(() => {
+    AOS.init({ duration: "1000" });
+  }, []);
 
   return (
     <div>
@@ -60,14 +64,17 @@ const Login = () => {
         <title>ResidenceHub - Login </title>
       </Helmet>
 
-      <div className=" min-h-[70%] mt-8">
+      <div className=" min-h-[70%] my-8">
         <div className="hero-content flex-col ">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold text-orange-500">
+          <div className="text-center" data-aos="zoom-in">
+            <h1 className="text-3xl font-bold text-orange-500">
               Login your account!
             </h1>
           </div>
-          <div className="card shrink-0 w-full max-w-lg shadow-2xl bg-base-100 mt-6">
+          <div
+            className="card shrink-0 w-full max-w-lg shadow-2xl bg-base-100 mt-6"
+            data-aos="zoom-in"
+          >
             <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -113,7 +120,7 @@ const Login = () => {
               <span className="p-2 px-4 font-semibold absolute top-5 left-50% transform -translate-x-1/2 -translate-y-full bg-white ">
                 OR
               </span>
-              <p className="mt-5 font-semibold">Login with</p>
+              <p className="mt-5 font-semibold">Login with Social media</p>
             </div>
 
             <div className="flex justify-center gap-8 p-8 pt-0 mt-10 text-sm">

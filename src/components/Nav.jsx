@@ -1,9 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaUserEdit } from "react-icons/fa";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Nav = () => {
+  useEffect(() => {
+    AOS.init({ duration: "2000" });
+  }, []);
   const { user, logOut } = useContext(AuthContext);
   // console.log(user, "user from nav");
 
@@ -15,6 +19,7 @@ const Nav = () => {
     <>
       <NavLink
         to="/"
+        data-aos="zoom-in"
         className={({ isActive }) =>
           isActive
             ? "border-2 border-orange-500 text-white bg-orange-500 py-2 px-3 mx-2  rounded-lg font-semibold"
@@ -26,6 +31,7 @@ const Nav = () => {
 
       <NavLink
         to="/about"
+        data-aos="zoom-in"
         className={({ isActive }) =>
           isActive
             ? "border-2 border-orange-500 text-white bg-orange-500 py-2 px-3 mx-2  rounded-lg font-semibold"
@@ -37,6 +43,7 @@ const Nav = () => {
 
       <NavLink
         to="/contact"
+        data-aos="zoom-in"
         className={({ isActive }) =>
           isActive
             ? "border-2 border-orange-500 text-white bg-orange-500 py-2 px-3 mx-2  rounded-lg font-semibold"
@@ -49,7 +56,7 @@ const Nav = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 px-0">
+    <div className="navbar bg-base-100  ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -75,7 +82,7 @@ const Nav = () => {
             {navMenu}
           </ul>
         </div>
-        <a href="/" className="text-2xl font-bold">
+        <a href="/" data-aos="zoom-in" className="text-2xl font-bold">
           Residence <span className="-ml-1 text-orange-500"> Hub</span>
         </a>
       </div>
@@ -87,11 +94,13 @@ const Nav = () => {
           {/* user profile image */}
           {user ? (
             <div
+              data-aos="zoom-in"
               className="tooltip tooltip-bottom tooltip-accent  "
               data-tip={user.displayName}
             >
               {user.photoURL ? (
                 <img
+                  data-aos="zoom-in"
                   className="w-14 h-14 rounded-full border-2 border-orange-500 object-cover "
                   // title={user.displayName}
                   src={user.photoURL}
@@ -99,6 +108,7 @@ const Nav = () => {
                 />
               ) : (
                 <img
+                  data-aos="zoom-in"
                   className="w-10"
                   src="https://i.ibb.co/X3yrLFJ/pngegg.png"
                   alt=""
@@ -110,13 +120,15 @@ const Nav = () => {
           {/* Update profile button */}
           {user && (
             <Link
+              data-aos="zoom-in"
               to="/profileUpdate"
               // onClick={handleUpdateProfile}
               // className="btn border-teal-500 bg-teal-500 text-white font-bold"
             >
               <div
+                data-aos="zoom-in"
                 className=" flex items-center h-6 w-6 rounded-full bg-orange-500 hover:bg-teal-500 transition-all tooltip tooltip-bottom absolute left-[70%] top-[60%]"
-                data-tip="Edit Profile"
+                data-tip="Update Profile"
               >
                 {" "}
                 <FaUserEdit className="text-white mx-auto text-md" />{" "}
@@ -127,6 +139,7 @@ const Nav = () => {
         {/* log out */}
         {user ? (
           <button
+            data-aos="zoom-in"
             onClick={handleLogOut}
             className="btn border-teal-500 bg-teal-500 text-white font-bold"
           >
@@ -135,6 +148,7 @@ const Nav = () => {
         ) : (
           <Link
             to="/login"
+            data-aos="zoom-in"
             className="btn border-orange-500 bg-orange-500 text-white font-bold"
           >
             Login

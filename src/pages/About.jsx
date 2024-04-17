@@ -1,6 +1,11 @@
 import { Helmet } from "react-helmet-async";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const About = () => {
+  useEffect(() => {
+    AOS.init({ duration: "2000" });
+  }, []);
   return (
     <div>
       <Helmet>
@@ -8,6 +13,7 @@ const About = () => {
       </Helmet>
       <div>
         <div
+          data-aos="zoom-in"
           className="hero min-h-[70vh] rounded-2xl"
           style={{
             backgroundImage:
@@ -33,7 +39,10 @@ const About = () => {
         {/*  */}
         <section className="p-4 lg:p-8 text-gray-800 my-10">
           <div className="container mx-auto space-y-12">
-            <div className="flex flex-col overflow-hidden items-center lg:flex-row-reverse gap-6">
+            <div
+              className="flex flex-col overflow-hidden items-center lg:flex-row-reverse gap-6"
+              data-aos="fade-down"
+            >
               <img
                 src="https://i.ibb.co/945Nztp/back-view-family-hugging-admiring-their-home.jpg"
                 alt=""
@@ -52,13 +61,16 @@ const About = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col overflow-hidden items-center  lg:flex-row gap-6">
+            <div
+              className="flex flex-col overflow-hidden items-center  lg:flex-row gap-6"
+              data-aos="fade-up"
+            >
               <img
                 src="https://i.ibb.co/fG5NR6w/pexels-fauxels-3183183.jpg"
                 alt=""
                 className="h-80  aspect-video rounded-md"
               />
-              <div className="flex flex-col justify-center flex-1 p-6 space-y-5">
+              <div className="flex flex-col justify-center flex-1 p-6 space-y-5 ">
                 <h3 className="text-3xl font-bold text-orange-500">
                   What We Offer
                 </h3>
@@ -106,12 +118,19 @@ const About = () => {
         <section className="py-6  text-black mb-6">
           <div className="container p-4 mx-auto space-y-16 sm:p-10">
             <div className="space-y-4 ">
-              <h3 className="text-2xl font-bold leading-none text-center sm:text-5xl text-orange-500">
+              <h3
+                data-aos="fade-up"
+                className="text-2xl font-bold leading-none text-center sm:text-5xl text-orange-500"
+              >
                 Meet our team
               </h3>
             </div>
             <div className="grid w-full grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-              <div className="space-y-4 border-orange-500 border-2 rounded-2xl px-4 py-8 hover:shadow-xl hover:text-orange-500 transition-all">
+              <div
+                data-aos="fade-up"
+                data-aos-duration="2000"
+                className="space-y-4 border-orange-500 border-2 rounded-2xl px-4 py-8 hover:shadow-xl hover:text-orange-500 transition-all"
+              >
                 <img
                   alt=""
                   className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm bg-gray-500"
@@ -170,7 +189,11 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="space-y-4 border-orange-500 border-2 rounded-2xl px-4 py-8 hover:shadow-xl hover:text-orange-500 transition-all">
+              <div
+                data-aos="fade-up"
+                data-aos-duration="3000"
+                className="space-y-4 border-orange-500 border-2 rounded-2xl px-4 py-8 hover:shadow-xl hover:text-orange-500 transition-all"
+              >
                 <img
                   alt=""
                   className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm bg-gray-500"
@@ -228,7 +251,11 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="space-y-4 border-orange-500 border-2 rounded-2xl px-4 py-8 hover:shadow-xl hover:text-orange-500 transition-all">
+              <div
+                data-aos="fade-up"
+                data-aos-duration="4000"
+                className="space-y-4 border-orange-500 border-2 rounded-2xl px-4 py-8 hover:shadow-xl hover:text-orange-500 transition-all"
+              >
                 <img
                   alt=""
                   className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm bg-gray-500"
@@ -286,7 +313,11 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="space-y-4 border-orange-500 border-2 rounded-2xl px-4 py-8 hover:shadow-xl hover:text-orange-500 transition-all">
+              <div
+                data-aos="fade-up"
+                data-aos-duration="5000"
+                className="space-y-4 border-orange-500 border-2 rounded-2xl px-4 py-8 hover:shadow-xl hover:text-orange-500 transition-all"
+              >
                 <img
                   alt=""
                   className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm bg-gray-500"
@@ -351,7 +382,10 @@ const About = () => {
         <section className=" text-black">
           <div className="container px-6 py-12 mx-auto">
             <div className="grid items-center gap-4 xl:grid-cols-5">
-              <div className="max-w-2xl mx-auto my-8 space-y-4 text-center xl:col-span-2 xl:text-left">
+              <div
+                data-aos="fade-up"
+                className="max-w-2xl mx-auto my-8 space-y-4 text-center xl:col-span-2 xl:text-left"
+              >
                 <h2 className="text-4xl font-bold text-orange-500">
                   Our Client Says
                 </h2>
@@ -364,7 +398,7 @@ const About = () => {
                 </p>
               </div>
               <div className="p-6 xl:col-span-3">
-                <div className="grid gap-4 md:grid-cols-2">
+                <div data-aos="zoom-in" className="grid gap-4 md:grid-cols-2 ">
                   <div className="grid content-center gap-4">
                     <div className="p-6 rounded shadow-md bg-orange-300">
                       <p>
